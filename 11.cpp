@@ -56,7 +56,7 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _11(int argc, _TCHAR* argv[])
 {
   Solution s;
   /* 11 */
