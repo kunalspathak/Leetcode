@@ -94,7 +94,7 @@ private:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _12(int argc, _TCHAR* argv[])
 {
   Solution s;
   int num = 70;
