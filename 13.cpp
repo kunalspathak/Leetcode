@@ -66,9 +66,10 @@ public:
   }
 };
 
-int _13(int argc, _TCHAR* argv[])
+int _13 (int argc, _TCHAR* argv[])
 {
   Solution s;
   string num("MMM");
   printf("%s : %d.\n", num.c_str(), s.romanToInt(num));
+  return 0;
 }
