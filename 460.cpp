@@ -5,6 +5,7 @@
 #include <iostream>
 #include <assert.h>
 
+// Used O(1) algorithm described in http://dhruvbird.com/lfu.pdf
 
 // https://leetcode.com/problems/lfu-cache/
 class LFUCache {
@@ -31,6 +32,9 @@ public:
   }
 
   void set(int key, int value) {
+    if (this->capacity == 0) {
+      return;
+    }
     auto hashValue = hashMap.find(key);
     if (hashValue == hashMap.end()) {
       // Doesn't exist, create new
@@ -184,12 +188,14 @@ private:
       // If curr is the first node
       assert(curr->prev == nullptr);
       currFreqNode->first = curr->next;
+      curr->next->prev = nullptr;
       curr->next = nullptr;
     }
     else if (currFreqNode->last == curr) {
       // If curr is the last node
       assert(curr->next == nullptr);
       currFreqNode->last = curr->prev;
+      curr->prev->next = nullptr;
       curr->prev = nullptr;
     }
     else {
@@ -225,7 +231,7 @@ private:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-  LFUCache cache(2);
+  /*LFUCache cache(2);
 
   cache.set(1, 1);
   cache.set(2, 2);
@@ -234,8 +240,32 @@ int _tmain(int argc, _TCHAR* argv[])
   cache.set(3, 5);
   cache.get(2);
   cache.set(4, 5);
-  cache.get(3);
-  
+  cache.get(3);*/
+
+  //LFUCache cache(0);
+  //cache.set(0, 0);
+  //cache.get(0);
+
+
+  /*["LFUCache", "set", "set", "set", "set", "get", "get", "get", "get", "set", "get", "get", "get", "get", "get"]
+  [[3], [1, 1], [2, 2], [3, 3], [4, 4], [4], [3], [2], [1], [5, 5], [1], [2], [3], [4], [5]]*/
+  LFUCache cache(3);
+
+ 
+  cache.set(1, 1);
+  cache.set(2, 2);
+  cache.set(3, 3);
+  cache.set(4, 4);  // evict 1
+  cache.get(4);     // 4 (2)
+  cache.get(3);     // 3 (2)
+  cache.get(2);     // 2 (2)
+  cache.get(1);     // Not found
+  cache.set(5, 5);  // evict 4
+  cache.get(1);     // Not found
+  cache.get(2);     // 2 (3)
+  cache.get(3);     // 3 (3)
+  cache.get(4);     // Not found
+  cache.get(5);     // 5 (2)
 
   return 0;
 }
