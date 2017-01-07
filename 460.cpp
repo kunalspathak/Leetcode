@@ -229,7 +229,7 @@ private:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _460(int argc, _TCHAR* argv[])
 {
   /*LFUCache cache(2);
 
