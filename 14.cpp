@@ -76,7 +76,7 @@ public:
 
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _14(int argc, _TCHAR* argv[])
 {
   vector<string> input =
 
