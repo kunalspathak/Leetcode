@@ -67,4 +67,5 @@ int _16(int argc, _TCHAR* argv[])
   vector<int> input = { 1,1,1,1 };
 
   printf("%d\n", s.threeSumClosest(input, 0));
+  return 0;
 }
