@@ -79,7 +79,7 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _15(int argc, _TCHAR* argv[])
 {
   Solution s;
   vector<int> input = { 0,0,0};
@@ -90,4 +90,5 @@ int _tmain(int argc, _TCHAR* argv[])
     triplet = (*it);
     printf("[%d, %d, %d]\n", triplet[0], triplet[1], triplet[2]);
   }
+  return 0;
 }
