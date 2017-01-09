@@ -16,8 +16,6 @@ public:
   int threeSumClosest(vector<int>& nums, int target) {
     int result = -1;
     int minDiffSoFar = INT32_MAX;
-    int diff = -1;
-    int sum = 0;
 
     if (nums.size() < 3) {
       return result;
@@ -29,18 +27,33 @@ public:
     std::sort(nums.begin(), nums.end());
 
     int n = nums.size();
-    for (int i = 0; i < (n - 2); i++) {
-      for (int j = (i + 1); j <= (n - 1); j++) {
-        for (int k = (j + 1); k < n; k++) {
-          sum = nums[i] + nums[j] + nums[k];
-          int diff = sum - target;
-          if (diff == 0) {
-            return target;
-          }
-          if (minDiffSoFar > abs(diff)) {
-            minDiffSoFar = abs(diff);
-            result = sum;
-          }
+    for (int i = 0; i < n - 2; i++) {
+      int a = nums[i];
+      int start = i + 1;
+      int end = n - 1;
+      while (start < end) {
+        assert(i != start);
+        assert(i != end);
+        assert(start != end);
+        int b = nums[start];
+        int c = nums[end];
+        int sum = a + b + c;
+        int diff = sum - target;
+        int absDiff = abs(diff);
+        if (absDiff < minDiffSoFar) {
+          minDiffSoFar = absDiff;
+          result = sum;
+        }
+
+        if (diff > 0) {
+          end--;
+        }
+        else if(diff < 0) {
+          start++;
+        }
+
+        if (diff == 0) {
+          return target;
         }
       }
     }
@@ -48,10 +61,10 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _16(int argc, _TCHAR* argv[])
 {
   Solution s;
-  vector<int> input = { 1,1,1,0 };
+  vector<int> input = { 1,1,1,1 };
 
-  printf("%d\n", s.threeSumClosest(input, 100));
+  printf("%d\n", s.threeSumClosest(input, 0));
 }
