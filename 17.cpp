@@ -65,7 +65,7 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _17(int argc, _TCHAR* argv[])
 {
   Solution s;
   vector<string> answer = s.letterCombinations("2345");
@@ -73,5 +73,5 @@ int _tmain(int argc, _TCHAR* argv[])
   {
     printf("%s, ", (*it).c_str());
   }
-
+  return 0;
 }
