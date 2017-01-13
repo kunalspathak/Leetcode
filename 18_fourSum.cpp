@@ -86,7 +86,7 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _18(int argc, _TCHAR* argv[])
 {
   Solution s;
   vector<int> input = {-1, 0,0,0,0,1};
