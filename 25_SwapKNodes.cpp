@@ -61,7 +61,7 @@ public:
   }
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int _25(int argc, _TCHAR* argv[])
 {
   int arr[] = {1 ,2,3,4,5,6};
   ListNode *head = new ListNode(arr[0]);
