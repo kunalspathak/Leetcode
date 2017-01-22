@@ -14,14 +14,14 @@ struct ListNode {
 };
 
 
-class Solution1 {
+class Solution {
 
 private:
   ListNode** headRef;
   bool startReversing;
 
 public:
-  Solution1::Solution1() : startReversing(false) {
+  Solution::Solution() : startReversing(false) {
     headRef = (ListNode**)malloc(sizeof(ListNode*));
     *headRef = nullptr;
   }
@@ -70,7 +70,7 @@ int _25(int argc, _TCHAR* argv[])
     temp->next = new ListNode(arr[i]);
     temp = temp->next;
   }
-  Solution1 s;
+  Solution s;
   ListNode* swapped = s.reverseKGroup(head, 1);
   while (swapped != nullptr) {
     printf("%d->", swapped->val);
